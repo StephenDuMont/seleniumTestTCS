@@ -12,7 +12,7 @@ describe.each([
     (browser, platform, slides) => {
       
         let driver;
-        beforeEach(async () => {
+        beforeAll(async () => {
             
             if (browser === 'chrome') {
                 const options = new chrome.Options();
@@ -34,7 +34,7 @@ describe.each([
             }
         });
         
-        afterEach(() => {
+        afterAll(() => {
             return driver.quit();
         });
         
@@ -49,7 +49,7 @@ describe.each([
             expect(query.length).toBeGreaterThan(slides);
         });
         
-        test.skip('3rd slide is an ad', async () => {
+        test('3rd slide is an ad', async () => {
             let query;
             if (platform === 'WINDOWS') {
                 query = await  driver.findElements(webdriver.By.css('.infopanestripe > ul > li:nth-child(3) span:contains("ad")')); 
