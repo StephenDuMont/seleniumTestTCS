@@ -49,16 +49,6 @@ describe.each([
             expect(query.length).toBeGreaterThan(slides);
         });
         
-        test('3rd slide is an ad', async () => {
-            let query;
-            if (platform === 'WINDOWS') {
-                query = await  driver.findElements(webdriver.By.css('.infopanestripe > ul > li:nth-child(3) span:contains("ad")')); 
-            } else if (platform === 'ANDROID') {
-                await driver.wait(webdriver.until.elementsLocated(webdriver.By.css('ul.swipenav span:contains("ad")')));
-                query = await driver.findElements(webdriver.By.css('ul.swipenav > li:nth-child(3) span:contains("ad")'));
-            }
-            
-            expect(query.length).not.toBe(0);
-        }); 
+
     }
 )
